@@ -151,7 +151,7 @@ class JDBCStreamSource(
   private def getType(columnName: String, schema: StructType): DataType = {
     val sqlField = schema.fields
       .find(_.name.toLowerCase == columnName.toLowerCase)
-      .getOrElse(throw new IllegalArgumentException(s"Column not found in schema: '$columnName'"))
+      .getOrElse(throw new IllegalArgumentException(s"Column not found in schema:  '$columnName'"))
     sqlField.dataType
   }
 }
