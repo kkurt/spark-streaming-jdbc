@@ -23,8 +23,11 @@ class JDBCStreamSource(
   // ToDo: implement
   // private val maxOffsetsPerTrigger = None
 
+  parameters.foreach(p=> log.debug(s"JDBCStreamSource Parameter ${p._1} = ${p._2}"))
+
   private val offsetColumn =
     parameters.getOrElse(OFFSET_COLUMN, throw new IllegalArgumentException(s"Parameter not found: $OFFSET_COLUMN"))
+
 
   override def schema: StructType = df.schema
 
